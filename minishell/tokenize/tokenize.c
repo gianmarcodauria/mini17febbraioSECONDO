@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
+/*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:00:57 by ccalabro          #+#    #+#             */
-/*   Updated: 2025/02/14 16:53:20 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:39:58 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 //     char **input;
 //     int x;
 //     t_tokenize t;
-    
+
 //     x = 0;
 //     input = pipe_splitter(str, main);
 //     t.token_count = 0;
 //     t.tokens = malloc(sizeof(char *) * TOKEN_MAX);
 //     if (!t.tokens)
 //         return (NULL);
-    
+
 //     while (input[x] != NULL)
 //     {
 //         // Salta segmenti vuoti o composti solo da spazi
@@ -34,7 +34,7 @@
 //         }
 //         t.i = 0;
 //         // Assumendo che t.j sia l'indice nel buffer del token corrente:
-//         t.j = 0;  
+//         t.j = 0;
 //         while (input[x][t.i])
 //         {
 //             if ((input[x][t.i] >= 9 && input[x][t.i] <= 32)
@@ -52,7 +52,7 @@
 //                 ft_else_char(&t, input[x]);
 //             t.i++;
 //         }
-//         /* Alla fine del segmento, se nel buffer c'è un token in costruzione, 
+//         /* Alla fine del segmento, se nel buffer c'è un token in costruzione,
 //            chiamalo per salvare il token corrente (es. "-l") */
 //         if (t.j > 0)
 //             ft_last_token(&t);
@@ -89,7 +89,7 @@ void print_cmd(t_cmd *cmd)
 // Funzione per allocare memoria per main->fun
 void build_fun(t_main *main)
 {
-    main->fun = malloc((main->pipe_number * sizeof(t_cmd)) + 1);
+    main->fun = calloc(main->pipe_number + 1, sizeof(t_cmd));
     if (!main->fun)
     {
         fprintf(stderr, "Errore: malloc fallita in build_fun\n");
